@@ -1,0 +1,18 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: #292a2d;
+}
+
+.center_loading {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: #292a2d;
+}

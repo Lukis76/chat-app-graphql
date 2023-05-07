@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+
+  transition: all 0.2s ease;
+}
+
+*::-webkit-scrollbar {
+  width: .5rem;
+  background: #24242436;
+  border-radius: 1rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.501);
+  height: 30%;
+  border-radius: 1rem;
+}
+
+
+input {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border-color: #24242425;
+}
+
+em {
+  line-height: 1.1;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 0.6rem;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+
+  font-weight: 700;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+small {
+  font-size: .6rem;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* Custom */
+.err {
+  outline-color: red !important;
+}
+
+.err ~ p * {
+  color: red;
+} 
+
+.success {
+  outline-color: greenyellow !important;
+}
+
+.success ~ P * {
+  color: green;
+}
+

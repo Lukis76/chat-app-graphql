@@ -1,0 +1,117 @@
+.room {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.avatar img {
+  border-width: 0.3rem;
+  border-color: azure;
+  border-radius: 99rem;
+  border-style: solid;
+  width: 5rem;
+  height: 5rem;
+}
+
+img[aria-checked='false'] {
+  border-color: #00ff40bb;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.expand {
+  padding: 0.2rem 0;
+  position: absolute;
+  visibility: hidden;
+  display: none;
+  z-index: 5;
+  transition: all 0.2s ease;
+}
+
+.info:hover .expand {
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.info:hover .expand div:nth-child(1) {
+  background: blueviolet;
+  width: 70%;
+  /* padding: 0 3rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* background: rosybrown; */
+  gap: 1rem;
+}
+
+.info:hover .expand div:nth-child(2) {
+  width: 70%;
+  /* padding: 0 3rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* background: rosybrown; */
+  margin-bottom: 0.2rem;
+}
+
+.info:hover .expand {
+  display: flex;
+  background: #6777f399;
+  color: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 18rem;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 9rem 9rem 0;
+  animation: expand 0.2s backwards;
+  flex-direction: column;
+  margin-left: 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.expand div p {
+  width: 100%;
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+.expand div:nth-child(2) span {
+
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+  clip: auto;
+}
+
+
+@keyframes expand {
+  from {
+    opacity: 0;
+    width: 0rem;
+    transform: translateX(0%);
+  }
+  to {
+    opacity: 1;
+    width: 15rem;
+    transform: translateX(0%);
+  }
+}
+
+.positionContextMenu {
+  top: .2rem;
+  left: 5.5rem;
+}

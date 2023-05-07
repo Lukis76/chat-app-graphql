@@ -1,0 +1,266 @@
+.container {
+  /* ff 3.6+ */
+  background: -moz-linear-gradient(
+    90deg,
+    #ee82ee 0%,
+    #864caf 27%,
+    #4ca8af 70%,
+    #0000ff 100%
+  );
+
+  /* safari 5.1+,chrome 10+ */
+  background: -webkit-linear-gradient(
+    90deg,
+    #ee82ee 0%,
+    #864caf 27%,
+    #4ca8af 70%,
+    #0000ff 100%
+  );
+
+  /* opera 11.10+ */
+  background: -o-linear-gradient(
+    90deg,
+    #ee82ee 0%,
+    #864caf 27%,
+    #4ca8af 70%,
+    #0000ff 100%
+  );
+
+  /* ie 6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0000ff', endColorstr='#EE82EE', GradientType=0 );
+
+  /* ie 10+ */
+  background: -ms-linear-gradient(
+    90deg,
+    #ee82ee 0%,
+    #864caf 27%,
+    #4ca8af 70%,
+    #0000ff 100%
+  );
+
+  /* global 94%+ browsers support */
+  background: linear-gradient(
+    90deg,
+    #ee82ee 0%,
+    #864caf 27%,
+    #4ca8af 70%,
+    #0000ff 100%
+  );
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form_container {
+  width: 100%;
+  max-width: 22rem;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: #bbb7d6;
+  transition: all 0.2s ease;
+}
+
+.form_container h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.form_container > span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_container > span > em {
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.form label {
+  height: 2.5rem;
+  width: 100%;
+  position: relative;
+}
+
+.form label span {
+  position: absolute;
+  right: 0.4rem;
+  top: 0.5rem;
+}
+
+.form label i {
+  position: absolute;
+  left: 0.3rem;
+  top: 0.2rem;
+}
+
+input ~ i > * {
+  opacity: 0.2;
+  color: #000000;
+}
+
+input:focus ~ i > * {
+  opacity: 0.8;
+  color: purple;
+}
+
+label > span * {
+  opacity: 0.4;
+  color: #000000;
+}
+
+.form input {
+  border-radius: 0.6rem;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  padding: 0.4rem 2.4rem;
+  transition: all 0.4s ease;
+  outline-color: #4c00825d;
+  /* background: #dedee6bb; */
+}
+
+.name {
+  left: 0.7rem;
+  font-size: 1.1rem;
+  font-style: normal;
+  position: absolute;
+  background: transparent;
+  color: transparent;
+}
+
+.form input::placeholder {
+  color: #00000088;
+  font-size: 1.1rem;
+}
+
+
+.form input:focus ~ em {
+  background: #bbb7d6;
+  color: #4c00825d;
+  font-size: 0.9rem;
+  top: -0.7rem;
+  left: 1rem;
+  padding: 0rem 0.5rem;
+  border-radius: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form button {
+  background: #006aff9d;
+  width: 70%;
+}
+.form button:enabled:hover {
+  transform: scale(1.02);
+  transition: all 0.1s ease-in-out;
+}
+
+.form button:disabled {
+  cursor: default;
+  scale: 1;
+  background: #dedee699;
+  color: #000000bb;
+}
+
+/* .form input {
+  background: #09f !important;
+} */
+
+.form input[aria-invalid=false] {
+  outline-color: red;
+  animation: pulse .5s linear infinite;
+}
+
+.form input[aria-invalid='true'] {
+  outline-color: green;
+  animation: pulse .5s linear infinite;
+}
+
+/* .form input[checked=undefined] {
+  outline-color: green;
+  animation: pulse .5s linear infinite;
+} */
+
+/* @keyframes pulse {
+  from {
+    outline: none;
+  }
+  to {
+    outline: auto;
+  }
+} */
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: .3rem;
+  gap: .5rem;
+}
+
+.info > small {
+  width: 100%;
+  font-size: .6rem;
+  display: flex;
+  line-height: 1;
+  text-align: start;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+.context_back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: #000000bb;
+}
+
+.context {
+  position: absolute;
+  top: 30%;
+  left: 55%;
+  z-index: 30;
+  border-radius: 0.5rem;
+  background: #292a2d;
+  color: #ffffffcc;
+}
+
+.context div:hover {
+  color: #292a2d;
+  background: #6777f3;
+}
+
+.context div {
+  cursor: pointer;
+  padding: 0.2rem 1rem;
+  width: 100%;
+}
+
+.context div:nth-child(1) {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.context div:nth-child(2) {
+  border-radius: 0 0 0.5rem 0.5rem;
+}

@@ -1,0 +1,42 @@
+.view {
+  position: absolute;
+  background: blue;
+  z-index: 20;
+  border-radius: .7rem;
+  border: 2px solid #626262;
+}
+
+.view button {
+  width: 100%;
+  border-radius: 0;
+  background: #292a2d;
+  color: #c2c2c2;
+}
+
+.view button:hover {
+  background: #6777f3;
+  color: #292a2d;
+}
+
+.view button:first-child {
+  width: 100%;
+  padding: 0.5rem 2.5rem;
+  border-radius: .5rem .5rem 0 0;
+}
+
+.view button:last-child {
+  width: 100%;
+  padding: 0.5rem 2.5rem;
+  border-radius: 0 0 .5rem .5rem ;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: .8;
+  z-index: 18;
+}

@@ -1,0 +1,49 @@
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  color: #ffffffcc;
+
+}
+.form {
+  background: rgb(27, 26, 26);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form input {
+  margin: 0 1rem;
+  width: 100%;
+  height: 2.5rem;
+  border-right: 0;
+  border-radius: .6rem;
+  outline-style: initial;
+  padding-right: 3rem;
+
+}
+
+.form input:focus {
+  outline-color: #6777f3;
+  outline-width: .2rem;
+  outline-style: solid;
+}
+
+
+
+.form  button {
+  position: absolute;
+  right: 1rem;
+  width: 5rem;
+  height: 100%;
+  border-radius: 0 .6rem .6rem 0;
+  background: rgb(45, 37, 212);
+  color: rgba(240, 248, 255, 0.948);
+}
+.form button:disabled {
+  color: rgba(0, 0, 0, 0.846);
+  background: rgba(240, 248, 255, 0.948);
+}

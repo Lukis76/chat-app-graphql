@@ -12,7 +12,7 @@ services:
     container_name: chat_app_back
     image: chat_app_back:0.0.1
     build:
-      context: ./AppChat-Back/
+      context: ./back-chat-app/
     ports:
       - "3005:3005"
     depends_on:
@@ -27,7 +27,7 @@ services:
     container_name: chat_app_client
     image: chat_app_client:0.0.1
     build:
-      context: ./provicional-client-chat-app/
+      context: ./client-chat-app/
     ports:
       - "3004:3004"
     depends_on:
