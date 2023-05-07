@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+
+
+  app_back:
+    container_name: chat_app_back
+    image: chat_app_back:0.0.1
+    build:
+      context: ./AppChat-Back/
+    ports:
+      - "3005:3005"
+    depends_on:
+      - mongodb
+    environment:
+      - PORT=3005
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+
+
+  app_client:
+    container_name: chat_app_client
+    image: chat_app_client:0.0.1
+    build:
+      context: ./provicional-client-chat-app/
+    ports:
+      - "3004:3004"
+    depends_on:
+      - mongodb
+      - app_back
+    environment:
+      - PORT=3004
