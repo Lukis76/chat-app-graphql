@@ -19,11 +19,17 @@ export type JwtVerifyTypes = {
   iat: number | undefined;
 };
 
+
 export interface User {
   id?: string;
+  name?: string;
   username?: string;
   email: string;
+  image?: string;
+  emailVerified?: boolean;
   token?: string;
+  passwordHash?: string
+
 }
 //-------------------------
 /**

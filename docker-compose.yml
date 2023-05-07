@@ -1,11 +1,13 @@
 version: '3.8'
 services:
-  mongodb:
-    image: mongo
-    restart: always
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=example
+  # mongo:
+  #   image: mongo
+  #   restart: always
+  #   ports:
+  #     - "27017:27017"
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=root
+  #     - MONGO_INITDB_ROOT_PASSWORD=example
 
 
   app_back:
@@ -14,13 +16,16 @@ services:
     build:
       context: ./back-chat-app/
     ports:
-      - "3005:3005"
-    depends_on:
-      - mongodb
+      - "3005:443"
+    # depends_on:
+    #   - mongo
     environment:
-      - PORT=3005
+      - PORT=443
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=example
+      - DATABASE_URL=mongodb://root:example@mongo:27017/
+      - DECODE_TOKEN=123456
+      - TIME_TOKEN=1d
 
 
   app_client:
@@ -29,9 +34,12 @@ services:
     build:
       context: ./client-chat-app/
     ports:
-      - "3004:3004"
+      - "3004:8080"
     depends_on:
-      - mongodb
+      # - mongo
       - app_back
     environment:
-      - PORT=3004
+      - PORT=8080
+      - GRAPHQL_URI_SUB="ws://0.0.0.0:3005/graphql/subscriptions"
+      - GRAPHQL_URI="http://0.0.0.0:3005/graphql"
+      - VITE_BASE_URL="http://0.0.0.0:3004"

@@ -1,7 +1,7 @@
-import { GraphQLContext, User, TypeError, Inputs } from "../../../../utils/types";
-import { GraphQLError } from "graphql";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+import { GraphQLContext, TypeError, Inputs, User } from '../../../../utils/types'
+import { GraphQLError } from 'graphql'
+import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
 ///////////////////////////////////////////////////////////////////
 export const registerUser = async (
   _: any,
@@ -9,8 +9,9 @@ export const registerUser = async (
   context: GraphQLContext
 ): Promise<User | TypeError> => {
   //==================================================
-  const { prisma } = context;
-  const { username, email, password } = registerInput;
+  const { prisma } = context
+  const { username, email, password } = registerInput
+  console.log("🚀 ~ file: register.ts:14 ~ registerInput:", registerInput)
   //==================================================
   try {
     //-------------------------------------------------
@@ -18,36 +19,36 @@ export const registerUser = async (
       where: {
         email,
       },
-    });
+    })
     //--------------------------------------------------------
-    if (usuario) {
+    if (!!usuario) {
       throw new GraphQLError(
         `User is already registered with the email ==> ${email}`
-      );
+      )
     }
     //----------------------------------------------------------
-    const passHash = await bcrypt.hash(password, 10);
+    const passHash: string = await bcrypt.hash(password, 10)
     //------------------------------------------------------------------
     if (!passHash) {
       throw new GraphQLError(
-        "An unexpected error occurred while trying to hash the password"
-      );
+        'An unexpected error occurred while trying to hash the password'
+      )
     }
     //------------------------------------------------------------------
 
-    const newUser = await prisma.user.create({
+    const newUser: User = await prisma.user.create({
       data: {
         username,
         email,
-        token: "",
+        token: '',
         passwordHash: passHash,
       },
-    });
+    })
     //-------------------------------------------------------------------
     if (!newUser) {
       throw new GraphQLError(
-        "An unexpected error occurred while creating the user in the db"
-      );
+        'An unexpected error occurred while creating the user in the db'
+      )
     }
     //------------------------------------------------------------------
     const userToken = {
@@ -55,48 +56,51 @@ export const registerUser = async (
       username: newUser.username,
       email: newUser.email,
       passHash: newUser.passwordHash,
-    };
+    }
     //------------------------------------------------------------
-    const token = jwt.sign(userToken, process.env.DECODE_TOKEN, {
+    const token: string = jwt.sign(userToken, process.env.DECODE_TOKEN, {
       expiresIn: process.env.TIME_TOKEN,
-    });
+    })
     //------------------------------------------------------------
     if (!token) {
       throw new GraphQLError(
-        "An unexpected error occurred while creating the token"
-      );
+        'An unexpected error occurred while creating the token'
+      )
     }
     //------------------------------------------
-    const update = await prisma.user.update({
+    const update: User = await prisma.user.update({
       where: {
         id: newUser.id,
       },
       data: {
         token,
       },
-    });
+    })
     //-------------------------------------------------------
     if (!update) {
       throw new GraphQLError(
-        "An unexpected error occurred while update the token"
-      );
+        'An unexpected error occurred while update the token'
+      )
     }
     //--------------------------------------------------------
     return {
+      
       id: newUser.id,
+      name: newUser.name,
       username: newUser.username,
+      image: newUser.image,
       email: newUser.email,
       token: token,
-    };
+    }
     //-------------------------------------------
   } catch (err) {
-    console.log("Register error", err);
+    console.log('Register error', err)
     return {
       error: {
         name: err?.name,
         message: err?.message,
       },
-    };
+    }
   }
-};
+}
 /////////////////////////////////////////////////////////////////////////////

@@ -5,9 +5,7 @@ export const decodeToken = async (token: string) => {
   //------------------------------------
   try {
     //------------------------------------
-    if (token === null) {
-      throw new Error("The token autentication is null");
-    }
+    if (token === null) return null
     //------------------------------------
     const parsToken = await JSON.parse(token).toString()
     console.log('parsToken => ', parsToken)
@@ -17,7 +15,7 @@ export const decodeToken = async (token: string) => {
     return { ...userToken };
     //------------------------------------
   } catch (err) {
-    console.log('error chaval => ', err)
+    console.log('error chaval => ', {err})
     return err;
   }
 };

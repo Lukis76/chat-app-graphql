@@ -1,4 +1,4 @@
-import { GraphQLContext, User, TypeError, Inputs } from "../../../../utils/types";
+import { GraphQLContext, TypeError, Inputs, User } from "../../../../utils/types";
 import { GraphQLError } from "graphql";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";

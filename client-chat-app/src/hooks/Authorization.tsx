@@ -15,7 +15,7 @@ export const useAuthorization = (initial = undefined) => {
 
   useQuery(OPERATION_REFRESH, {
     onCompleted(data) {
-      setCheck(data?.refresh?.timeOut)
+      setCheck(!!data?.refresh?.timeOut)
     },
     fetchPolicy: 'no-cache',
     variables: {

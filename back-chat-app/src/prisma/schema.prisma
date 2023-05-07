@@ -8,22 +8,22 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = "mongodb+srv://lucas:mano76@clusterone.3t6fj.mongodb.net/chat-app-graphql?retryWrites=true&w=majority" //env("DATABASE_URL") 
 }
 
 model User {
   id            String                    @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
   email         String                    @unique
-  passwordHash  String                    @unique
+  passwordHash  String?                    @unique
   emailVerified Boolean?
   image         String?
   username      String                    @unique
   token         String?                   @unique
   conversations ConversationParticipant[]
   msgs          Msg[]
-  createdAt     DateTime                  @default(now())
-  updatedAt     DateTime                  @updatedAt
+  createdAt     DateTime?                  @default(now())
+  updatedAt     DateTime?                  @updatedAt
 }
 
 model VerificationToken {
